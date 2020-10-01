@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import A11yRadio from './components/a11y/Inputs/RadioButton'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <A11yRadio>
+        <A11yRadio.RadioButton
+          id='hello-world'
+          name='app'
+          label='Sample Radio Button'
+        />
+        <A11yRadio.RadioButton
+          id='hello-world1'
+          name='app'
+          label='Another Sample Radio Button'
+        />
+      </A11yRadio>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
