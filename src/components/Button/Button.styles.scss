@@ -16,6 +16,7 @@ $btn-color: #949494;
   border: 0.1em solid #fff;
   border-radius: 0.2em;
   transition: all 0.2s;
+
   &:hover {
     background: darken($color: $btn-color, $amount: 10%);
   }
