@@ -10,6 +10,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
@@ -19,7 +20,20 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "check:format": "prettier --list-different \"./**/*.{ts,tsx}\"",
+    "format": "prettier --write \"./**/*.{ts,tsx}\"",
+    "lint": "eslint '*/**/*.{js,ts,tsx}'",
+    "lint:fix": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "lint:style": "stylelint \"**/*.scss\" --fix",
+    "pre-commit": "lint-staged && yarn lint:fix && yarn lint:style && yarn format",
+    "pre-push": "yarn test && yarn lint:fix && yarn check:format"
+  },
+  "lint-staged": {
+    "src/**/*.ts*": [
+      "yarn lint:fix",
+      "git add"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,5 +49,31 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^7.24.3",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/react-hooks": "^3.4.2",
+    "@testing-library/user-event": "^12.1.6",
+    "@types/jest": "^26.0.14",
+    "@types/jest-axe": "^3.5.0",
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.2",
+    "eslint-plugin-sonarjs": "^0.5.0",
+    "husky": "^4.3.0",
+    "jest-axe": "^4.0.0",
+    "lint-staged": "^10.4.0",
+    "node-sass": "^4.13.1",
+    "prettier": "^2.1.2",
+    "stylelint": "^13.7.2",
+    "stylelint-config-recess-order": "^2.1.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.18.0"
   }
 }

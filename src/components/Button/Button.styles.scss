@@ -1,0 +1,22 @@
+// Variables
+$btn-color: #949494;
+
+.button {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: medium;
+  font-weight: 500;
+  color: #545454;
+  text-align: center;
+  text-decoration: none;
+  background: $btn-color;
+  border: 0.1em solid #fff;
+  border-radius: 0.2em;
+  transition: all 0.2s;
+  &:hover {
+    background: darken($color: $btn-color, $amount: 10%);
+  }
+}
